@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Input from "./components/Input";
+import Input from "../regardingpages/components/Input";
 import {useForm} from "react-hook-form"
-import { FormType} from "./types/FormType";
-import { FormsType} from "./types/FormsType";
-import { deleteForm, fetchForms, submitForm } from "./components/handleAPI";
+import { FormType} from "../regardingpages/types/FormType";
+import { FormsType} from "../regardingpages/types/FormsType";
+import { deleteForm, fetchForms, submitForm } from "../regardingpages/components/handleAPI";
 import Link from "next/link";
 
 export default function Home() {

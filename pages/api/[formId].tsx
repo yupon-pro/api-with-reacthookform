@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { forms } from "../data/Forms";
-import { FormsType } from "../types/FormsType";
+import { forms } from "../../regardingpages/data/Forms";
+import { FormsType } from "../../regardingpages/types/FormsType";
 
 
 

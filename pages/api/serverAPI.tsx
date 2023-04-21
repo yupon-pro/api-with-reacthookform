@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { FormsType } from '../types/FormsType'
-import { forms } from '../data/Forms'
+import { FormsType } from '../../regardingpages/types/FormsType'
+import { forms } from '../../regardingpages/data/Forms'
 
 
 export default function handler(
