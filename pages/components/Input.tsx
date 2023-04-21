@@ -1,8 +1,8 @@
 import { InputHTMLAttributes } from "react"
 import { FieldValues, UseControllerProps, useController } from "react-hook-form"
-import { Form } from "../types/FormType";
+import { FormType } from "../types/FormType";
 
-type InputProps<T>=Form & InputHTMLAttributes<HTMLInputElement> & UseControllerProps;
+type InputProps<T>=FormType & InputHTMLAttributes<HTMLInputElement> & UseControllerProps;
 
 const Input=<T extends FieldValues>(props:InputProps<T>):JSX.Element=>{
     const {name,control,...inputAttributes}=props;
