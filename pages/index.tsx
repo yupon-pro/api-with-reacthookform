@@ -8,17 +8,17 @@ import Link from "next/link";
 
 export default function Home() {
   const [data,setData]=useState<FormsType[]>([]);
-  const {control,handleSubmit}=useForm<FormType>({defaultValues:{userName:"",password:""}})
+  const {control,handleSubmit,reset}=useForm<FormType>({defaultValues:{userName:"",password:""}})
 
   const getForms=async()=>{
     const detail=await fetchForms();
     setData(detail);
   }
-
+  
   const onSubmit=async(dataSet:FormType)=>{
     const detail=await submitForm(dataSet);
-    console.log(detail) 
-    getForms();  
+    console.log(detail);
+    reset();   
   };
 
   const eliminate=async(formId:number)=>{
@@ -35,7 +35,7 @@ export default function Home() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label className="cursor-pointer" htmlFor="userName">userName:</label>
-          <Input className="p-2 m-1" id="userName" name="userName" control={control} placeholder="name"/>
+          <Input className="p-2 m-1" id="userName" name="userName" control={control} placeholder="name" />
         </div>
         <div>
           <label className="cursor-pointer" htmlFor="password">Password:</label>
@@ -58,7 +58,7 @@ export default function Home() {
                             暗黙の裡にe:MouseEventがPromise関数に渡されることになり、型があわないというエラーが出る。 
                             (空！)=>は、イベントを何も渡していないことを明示する。
                             */}
-                            <Link href={`/api/${d.id}`}> <button className="rounded border-black bg-green-400 p-1 mx-1">GO TO API!</button></Link>
+                            <Link href={`/api/${d.id}`}><button className="rounded border-black bg-green-400 p-1 mx-1">GO TO API!</button></Link>
                         </div>
                     </li>
                 ))
