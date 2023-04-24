@@ -5,7 +5,9 @@ import { FormType} from "../regardingpages/types/FormType";
 import { FormsType} from "../regardingpages/types/FormsType";
 import { deleteForm, fetchForms, submitForm } from "../regardingpages/components/handleAPI";
 import Link from "next/link";
+import { GetStaticProps } from "next";
 
+type Forms=FormsType[] & GetStaticProps;
 
 export async function getStaticProps(){
   const res=fetch("https://api-with-reacthookform.vercel.app/api/serverAPI").then(data=>data.json()).catch(error=>{throw error});
@@ -32,7 +34,7 @@ export async function getStaticProps(){
   }
 }
 
-export default function Home({forms}) {
+export default function Home({forms}:any) {
   const [data,setData]=useState<FormsType[]>(forms);
   const [loaded,setLoaded]=useState<boolean>(false);
   const {control,handleSubmit,reset}=useForm<FormType>({defaultValues:{userName:"",password:""}})
